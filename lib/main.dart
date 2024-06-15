@@ -14,87 +14,74 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Launchpad',
-      home: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text("Launchpad",
-            style: GoogleFonts.pirataOne(
-              color: Colors.red
-            )
-            ),
-            backgroundColor:  Colors.black,
-          ),
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
           backgroundColor: Colors.black,
-          body: Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: [Pad(Color(0xffADCBFC), Color(0xff067CCB), "1.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "2.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "3.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "4.mp3"),
-              Pad(Color(0xffADCBFC), Color(0xff067CCB), "5.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "6.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "7.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "8.mp3"),
-              Pad(Color(0xffADCBFC), Color(0xff067CCB), "9.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "10.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "11.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "12.mp3"),
-              Pad(Color(0xffADCBFC), Color(0xff067CCB), "13.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "14.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "15.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "16.mp3"),
-              Pad(Color(0xffADCBFC), Color(0xff067CCB), "17.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "18.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "19.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "20.wav"),
-              Pad(Color(0xffADCBFC), Color(0xff067CCB), "21.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "22.wav"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "23.wav"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "24.wav"),
-              Pad(Color(0xffADCBFC), Color(0xff067CCB), "25.wav"),Pad(Color(0xffff2525), Color(0xffc40050), "26.wav"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "27.wav"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "28.wav")],
-          ),
-        
+          title: Center(
+              child: Text(
+            "Launchpad",
+            style: GoogleFonts.belleza(color: Colors.red, fontSize: 25),
+          )),
         ),
-      )
-    );
-  }
-}
-class  Pad extends StatefulWidget {
-  final CenterColor;
-  final Outlinecolor;
-  final sound;
-  const Pad (this.CenterColor,this.Outlinecolor,this.sound);
-
-  @override
-  State<Pad> createState() => _State();
-}
-
-class _State extends State<Pad> {
-  late Color _centerColor;
-  late Color _outlineColor;
-  final Player = AudioPlayer();
-  @override
-  void initState() {
-    _centerColor= widget.CenterColor;
-    _outlineColor =widget.Outlinecolor;
-    super.initState();
-  }
-  @override
-  Widget build(BuildContext context) {
-    double height= MediaQuery.of(context).size.height;
-    double width =MediaQuery.of(context).size.width;
-    return GestureDetector(
-      onTap: ()async{
-        setState(() {
-          _centerColor=Colors.white;
-          _outlineColor=Colors.white;
-          Player.play(AssetSource(widget.sound));
-        }
-            );
-        await Future.delayed(Duration(milliseconds: 200));
-
-        setState(() {
-          _centerColor=widget.CenterColor;
-          _outlineColor=widget.Outlinecolor;
-        });
-      },
-      child: Container(
-        height: height/8.5,
-        width:width/4.3,
-        decoration: BoxDecoration(
-          gradient: RadialGradient(
-            colors: [_centerColor,_outlineColor],
-            radius: 0.5
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(5)),
-          boxShadow: [BoxShadow(color: Colors.pink,blurRadius: 3)]
+        body: Wrap(
+          spacing: 5,
+          runSpacing: 5,
+          children:  [Pad(Color(0xffADCBFC), Color(0xff067CCB), "1.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "2.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "3.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "4.mp3"),
+            Pad(Color(0xffADCBFC), Color(0xff067CCB), "1.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "2.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "3.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "4.mp3"),
+            Pad(Color(0xffADCBFC), Color(0xff067CCB), "1.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "2.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "3.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "4.mp3"),
+            Pad(Color(0xffADCBFC), Color(0xff067CCB), "1.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "2.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "3.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "4.mp3"),
+            Pad(Color(0xffADCBFC), Color(0xff067CCB), "1.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "2.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "3.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "4.mp3"),
+            Pad(Color(0xffADCBFC), Color(0xff067CCB), "1.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "2.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "3.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "4.mp3"),
+            Pad(Color(0xffADCBFC), Color(0xff067CCB), "1.mp3"),Pad(Color(0xffff2525), Color(0xffc40050), "2.mp3"),Pad(Color(0xffADCBFC), Color(0xff067CCB), "3.mp3"),Pad(Color(0xffe247FC), Color(0xffA23AB7), "4.mp3")],
         ),
       ),
     );
   }
 }
 
+class Pad extends StatefulWidget {
+  late Color outile_color;
+  late Color center_Color;
+  String sound;
+  Pad(this.outile_color, this.center_Color, this.sound);
+
+  @override
+  State<Pad> createState() => _PadState();
+}
+
+class _PadState extends State<Pad> {
+  @override
+  Widget build(BuildContext context) {
+    Color _outlineColor = widget.outile_color;
+    Color _centerColor = widget.center_Color;
+    double height= MediaQuery.of(context).size.height;
+    double width =MediaQuery.of(context).size.width;
+
+    final player = AudioPlayer();
+    return GestureDetector(
+      onTap: () async {
+        setState(() {
+          _outlineColor = Colors.white;
+          _centerColor = Colors.white;
+          player.play(AssetSource(widget.sound));
+        });
+        await Future.delayed(Duration(milliseconds: 300));
+        setState(() {
+          _outlineColor = widget.outile_color;
+          _centerColor = widget.center_Color;
+        });
+      },
+      child: Container(height: height/8, width: width/4.2,
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            colors: [_outlineColor,_centerColor],
+                radius: 0.5,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(5),),
+            boxShadow: [BoxShadow(color: Colors.pink,blurRadius: 0.5)]
+        ),
+      ),
+    );
+  }
+}
